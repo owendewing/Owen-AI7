@@ -53,10 +53,21 @@ Run the repository and complete the following:
 
 What is the purpose of the `chunk_overlap` parameter when using `RecursiveCharacterTextSplitter` to prepare documents for RAG, and what trade-offs arise as you increase or decrease its value?
 
+##### ✅ Answer:
+
+The chunk overlap parameter in RecursiveCharacterTextSplitter in in charge of controlling how much text and content is shared between chunks when splitting up documents for RAG. Its value comes in maintaining the meaning of sentences or paragraphs that could be split across chunks, overall enhancing retrieval quality. As you increase its value, the context is better preserved; however, this also increases processing time, and could lead to redundancy. As you decrease its value, it can lead to faster processing times, but could come at the rist of losing context and only retrieving partial information.
+
 #### ❓ Question:
 
 Your retriever is configured with `search_kwargs={"k": 5}`. How would adjusting `k` likely affect RAGAS metrics such as Context Precision and Context Recall in practice, and why?
 
+##### ✅ Answer:
+The k parameter overall controls how many documents are retrieved for each query. A higher k value might decrease context precision because more noise is returned with each retrieval, while a lower k value would increase context precision, focusing on the most relevant information pertaining to the query. On the other hand, a higher k value might increase context recall because while it might be adding more noise, it also could increase the number of relevant documents that are retrieved and help fill in gaps in the query. A lower k value would decrease the context recall score, as documents that are still relevant might be left out of the top 5. To optimize context precision and context recall, it is important to experiment and find a k value that is somewhere in the middle.
+
 #### ❓ Question:
 
 Compare the `agent` and `agent_helpful` assistants defined in `langgraph.json`. Where does the helpfulness evaluator fit in the graph, and under what condition should execution route back to the agent vs. terminate?
+
+##### ✅ Answer:
+
+For the agent assistant, the flow goes from agent to action (if the tool is called) or END (if no tool calls or if tool is not needed anymore). The agent_helpful assistant flow goes from agent to action similarly. However, it checks if the final response is helpful by comparing the response against the initial query. If it is not helpful, it routes back to the agent. It terminates when "Yes" is returned from the helfpulness node, or if the assistant exceeds the 10-message limit.
