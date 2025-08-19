@@ -87,10 +87,24 @@ Do this by creating a Simple Agent that can make API calls to the 🤖Agent Node
 
 What are the core components of an `AgentCard`?
 
+##### ✅ Answer:
+An agent card is sort of like a business card, advertising what capabiliites can be performed by that agent, so that other agents can interact with it.
+
+The core components of an agent card are the metadata that is provided, such as the name ("General Purpose Agent"), description ("A helpful AI assistant with web search, academic paper search, and document retrieval capabilities"), url, and version (1.0.0).  
+
+The agent card also has input and output capabilities, which list the content types that the agent can receive and return, which in this case is text.
+
+Next, the agent card has agent capabilities, which declare system-level features for the agent. In this case, our agent is stating that it supports streaming responses and push notifications.
+
+Finally, the agent card has skills, which are the functions or tools that the agent has/can perform. Each skill has an id, name, description, tags, and examples. Our 3 skill objects in this assignment are web_search, arxiv_search, and rag_search.
+
 ### ❓ Question #2:
 
 Why is A2A (and other such protocols) important in your own words?
 
+##### ✅ Answer:
+
+Agent 2 Agent Protocol is important because it provides a standardized way for agents to communicate with each other. It uses a clear server-client structure that is easy to use and understand. The Agent Cards, which describe an agent's capabilities, make it easy so that clients or other agents can easily identify the best agent for a task. This is better than the @tool LangGraph wrapper, because A2A allows agents to dynamically discover and interact with each other without being paried together. Overall, A2A promotes building scalable multi-agent systems, where agents can efficiently work together.
 ### 🚧 Advanced Build:
 
 <details>
