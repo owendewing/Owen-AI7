@@ -78,9 +78,10 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 200) -> List[st
 def load_documents():
     """Load documents from the data directory."""
     documents = []
-    data_dir = "data"
+    data_dir = "/app/data"  # Use absolute path for Docker container
     
     if not os.path.exists(data_dir):
+        print(f"Data directory not found at: {data_dir}")
         return documents
     
     for root, dirs, files in os.walk(data_dir):
@@ -224,7 +225,7 @@ def get_semantic_cache_response(query: str) -> Optional[str]:
             collection_name="semantic_cache",
             query_vector=query_embedding,
             limit=10,  # Get more results to see what's available
-            score_threshold=0.5  # Adjusted threshold for semantic matching
+            score_threshold=0.65  # Adjusted threshold for semantic matching
         )
         
         print(f"Semantic cache search for '{query}' returned {len(results)} results")
