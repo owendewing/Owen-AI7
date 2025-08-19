@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Test script for Activity #1: Simple Agent using A2A Protocol
+Test script for Activity #1: LangGraph using A2A Protocol
 
-This script demonstrates how to create a simple agent that can make API calls
+This script demonstrates how to create a LangGraph that can make API calls
 to the A2A server through the A2A protocol.
 
 Usage:
@@ -17,7 +17,7 @@ import asyncio
 import sys
 import time
 import json
-from simple_agent_client import SimpleAgent
+from langgraph_agent_client import LangGraphAgent
 
 def format_response(response: str) -> str:
     """
@@ -52,20 +52,21 @@ def format_response(response: str) -> str:
 
 async def demonstrate_activity1():
     """
-    Demonstrate Activity #1: Simple Agent using A2A Protocol
+    Demonstrate Activity #1: LangGraph using A2A Protocol
     """
     
-    print("🎯 Activity #1: Simple Agent using A2A Protocol")
+    print("🎯 Activity #1: LangGraph using A2A Protocol")
     print("=" * 60)
     print()
     
-    # Create our simple agent
-    agent = SimpleAgent("Activity1Agent")
+    # Create our LangGraph agent
+    agent = LangGraphAgent("Activity1LangGraphAgent")
     
     try:
-        print("🤖 Created SimpleAgent that can communicate with A2A server")
-        print("📡 Agent will make API calls through the A2A protocol")
+        print("🤖 Created LangGraphAgent that uses LangGraph to communicate with A2A server")
+        print("📡 LangGraph orchestrates A2A protocol communication")
         print("🎴 Using agent cards for proper A2A communication")
+        print("🔄 LangGraph manages state and conversation flow")
         print()
         
         # Test 1: Web search query
@@ -80,7 +81,7 @@ async def demonstrate_activity1():
         
         formatted_response1 = format_response(response1)
         print(f"⏱️  Response time: {end_time - start_time:.2f} seconds")
-        print(f"🤖 Response: {formatted_response1}")
+        print(f"🤖 LangGraph Response: {formatted_response1}")
         print()
         
         # Test 2: Academic paper search
@@ -95,7 +96,7 @@ async def demonstrate_activity1():
         
         formatted_response2 = format_response(response2)
         print(f"⏱️  Response time: {end_time - start_time:.2f} seconds")
-        print(f"🤖 Response: {formatted_response2}")
+        print(f"🤖 LangGraph Response: {formatted_response2}")
         print()
         
         # Test 3: Multi-turn conversation
@@ -110,7 +111,7 @@ async def demonstrate_activity1():
         
         formatted_response3a = format_response(response3a)
         print(f"⏱️  Response time: {end_time - start_time:.2f} seconds")
-        print(f"🤖 Response: {formatted_response3a}")
+        print(f"🤖 LangGraph Response: {formatted_response3a}")
         print()
         
         # Follow-up question
@@ -123,7 +124,7 @@ async def demonstrate_activity1():
         
         formatted_response3b = format_response(response3b)
         print(f"⏱️  Response time: {end_time - start_time:.2f} seconds")
-        print(f"🤖 Response: {formatted_response3b}")
+        print(f"🤖 LangGraph Response: {formatted_response3b}")
         print()
         
         # Test 4: Tool selection demonstration
@@ -138,18 +139,19 @@ async def demonstrate_activity1():
         
         formatted_response4 = format_response(response4)
         print(f"⏱️  Response time: {end_time - start_time:.2f} seconds")
-        print(f"🤖 Response: {formatted_response4}")
+        print(f"🤖 LangGraph Response: {formatted_response4}")
         print()
         
         print("✅ Activity #1 Demonstration Complete!")
         print()
         print("📊 Summary:")
-        print("   • SimpleAgent successfully communicated with A2A server")
-        print("   • Agent made API calls through A2A protocol")
+        print("   • LangGraphAgent successfully uses LangGraph to communicate with A2A server")
+        print("   • LangGraph orchestrates A2A protocol communication")
         print("   • Used agent cards for proper communication")
-        print("   • Demonstrated multi-turn conversations")
-        print("   • Showed tool selection and execution")
+        print("   • Demonstrated multi-turn conversations with LangGraph state management")
+        print("   • Showed tool selection and execution through LangGraph")
         print("   • Verified helpfulness evaluation loop")
+        print("   • LangGraph manages conversation state and flow")
         
     except Exception as e:
         print(f"❌ Error during Activity #1 demonstration: {e}")
@@ -169,7 +171,8 @@ def main():
     
     if success:
         print("\n🎉 Activity #1 completed successfully!")
-        print("📝 The simple agent successfully used the A2A protocol to communicate with the server.")
+        print("📝 The LangGraph successfully uses the A2A protocol to communicate with the server.")
+        print("🔄 This is the proper implementation: LangGraph orchestrating A2A communication.")
     else:
         print("\n❌ Activity #1 failed. Check the error messages above.")
         sys.exit(1)
